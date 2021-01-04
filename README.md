@@ -34,6 +34,11 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :category
+- belongs_to :item_status
+- belongs_to :delivery_fee
+- belongs_to :shipping_area
+- belongs_to :days_to_ship
 - has_many :comments
 - has_one :purchase
 
