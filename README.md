@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| explanation   | text       | null: false                    |
-| category      | text       | null: false                    |
-| status        | string     | null: false                    |
-| delivery_fee  | string     | null: false                    |
-| shipping_area | string     | null: false                    |
-| days_to_ship  | string     | null: false                    |
-| price         | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| explanation      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| delivery_fee_id  | integer    | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| days_to_ship_id  | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
