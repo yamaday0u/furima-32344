@@ -29,7 +29,7 @@
 | delivery_fee  | string     | null: false                    |
 | shipping_area | string     | null: false                    |
 | days_to_ship  | string     | null: false                    |
-| price         | string     | null: false                    |
+| price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
