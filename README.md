@@ -53,9 +53,6 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| credit_card_number | integer    | null: false                    |
-| expiration         | date       | null: false, foreign_key: true |
-| security_code      | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
 
