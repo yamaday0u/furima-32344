@@ -25,7 +25,7 @@
 | name             | string     | null: false                    |
 | explanation      | text       | null: false                    |
 | category_id      | integer    | null: false                    |
-| status_id        | integer    | null: false                    |
+| item_status_id   | integer    | null: false                    |
 | delivery_fee_id  | integer    | null: false                    |
 | shipping_area_id | integer    | null: false                    |
 | days_to_ship_id  | integer    | null: false                    |
