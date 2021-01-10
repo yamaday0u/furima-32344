@@ -7,11 +7,11 @@ RSpec.describe User, type: :model do
 
   describe '新規登録/ユーザー情報' do
     context '新規登録できるとき' do
-      it "全ての項目が存在すれば登録できる" do
+      it '全ての項目が存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it "passwordが6文字以上の半角英数字であれば登録できる" do
-        @user.password = "123abc"
+      it 'passwordが6文字以上の半角英数字であれば登録できる' do
+        @user.password = '123abc'
         @user.password_confirmation = @user.password
         expect(@user).to be_valid
       end
@@ -59,18 +59,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-       it 'passwordが数字のみだと登録できない' do
-         @user.password = "123456"
-         @user.password_confirmation = @user.password
-         @user.valid?
-         expect(@user.errors.full_messages).to include("Password には半角の英字と数字の両方を含めて設定してください")
-       end
-       it ' passwordに全角が含まれていると登録できない'do
-       @user.password = "12３abc"
-       @user.password_confirmation = @user.password
-       @user.valid?
-       expect(@user.errors.full_messages).to include("Password には半角の英字と数字の両方を含めて設定してください")
-       end
+      it 'passwordが数字のみだと登録できない' do
+        @user.password = '123456'
+        @user.password_confirmation = @user.password
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password には半角の英字と数字の両方を含めて設定してください')
+      end
+      it ' passwordに全角が含まれていると登録できない' do
+        @user.password = '12３abc'
+        @user.password_confirmation = @user.password
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password には半角の英字と数字の両方を含めて設定してください')
+      end
     end
 
     describe '新規登録/本人情報確認' do

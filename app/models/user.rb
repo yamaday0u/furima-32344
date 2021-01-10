@@ -7,25 +7,24 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :first_name, format: {
-                           with: /\A[^ -~｡-ﾟ]+\z/,
-                           message: 'には全角で入力して下さい'
-                         }
+      with: /\A[^ -~｡-ﾟ]+\z/,
+      message: 'には全角で入力して下さい'
+    }
     validates :family_name, format: {
-                            with: /\A[^ -~｡-ﾟ]+\z/,
-                            message: 'には全角で入力して下さい'
-                          }
+      with: /\A[^ -~｡-ﾟ]+\z/,
+      message: 'には全角で入力して下さい'
+    }
     validates :first_name_kana, format: {
-                                with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
-                                message: 'には全角カタカナのみで入力して下さい'
-                              }
-    validates :family_name_kana,  format: {
-                                 with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
-                                 message: 'には全角カタカナのみで入力して下さい'
-                               }
-    validates :birthday, presence: true
+      with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+      message: 'には全角カタカナのみで入力して下さい'
+    }
+    validates :family_name_kana, format: {
+      with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+      message: 'には全角カタカナのみで入力して下さい'
+    }
+    validates :birthday
 
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角の英字と数字の両方を含めて設定してください'
+    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+    validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角の英字と数字の両方を含めて設定してください'
   end
-
 end
