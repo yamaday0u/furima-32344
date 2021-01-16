@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :explantion
+    validates :explanation
     validates :image
     with_options numericality: {ohter_than: 1} do
       validates :category
