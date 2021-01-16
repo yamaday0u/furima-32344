@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belogs_to :user
+  belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
@@ -22,10 +22,7 @@ class Item < ApplicationRecord
       validates :shipping_area
       validates :days_to_ship
     end
-    validates :price、format: {
-      with: /\A\d+\z/, message: "is invalid. Input half-width characters.",
-      with: /[\A3.{2,}]-[9{,7}]/, message: "is "
-    }
+    validates :price,format: {with: /\A\d+\z/, message: "Half-width number."}
+    validates :price, format: {with: /[\A3.{2,}]-[9{,7}]/, message: "Out of setting range."}
   end
-  
 end
