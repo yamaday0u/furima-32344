@@ -1,6 +1,6 @@
-# テーブル設計
+# TABLE DESIGN
 
-## users テーブル
+## users table
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
@@ -18,7 +18,7 @@
 - has_many :comments
 - has_many :purchases
 
-## items テーブル
+## items table
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -42,7 +42,7 @@
 - has_many :comments
 - has_one :purchase
 
-## comments テーブル
+## comments table
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -54,7 +54,7 @@
 - belongs_to :user
 - belongs_to :prototype
 
-## purchases テーブル
+## purchases table
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -66,7 +66,7 @@
 - belongs_to :item
 - has_one :delivery
 
-## deliveries テーブル
+## deliveries table
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
