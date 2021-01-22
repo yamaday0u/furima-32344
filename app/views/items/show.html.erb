@@ -9,7 +9,8 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
 
-      <% unless @item.purchase.nil? %><%# 商品が売り切れていたらSold Out!!表示 %>
+      <%# 商品が売り切れていたらSold Out!!表示 %>
+      <% unless @item.purchase.nil? %>
         <div class='sold-out'>
           <span>Sold Out!!</span>
         </div>
