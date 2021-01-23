@@ -26,6 +26,13 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find_by(id: params[:id])
   end
+
+  def update
+    item = Item.find_by(id: params[:id])
+    item.update(item_params)
+    redirect_to item_path(item.id)
+  end
+
   private
 
   def item_params
