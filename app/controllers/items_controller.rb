@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destory
+    @item.destory
+  end
+
   private
   def item_params
     params.require(:item).permit(
