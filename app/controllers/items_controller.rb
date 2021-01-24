@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @item.user.id && @item.purchase.nil?
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @item.user.id && @item.purchase.nil?
   end
 
   def update
@@ -44,6 +42,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(
       :name,
