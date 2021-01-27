@@ -34,11 +34,11 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :category
-- belongs_to :item_status
-- belongs_to :delivery_fee
-- belongs_to :shipping_area
-- belongs_to :days_to_ship
+- belongs_to_active_hash :category
+- belongs_to_active_hash :item_status
+- belongs_to_active_hash :delivery_fee
+- belongs_to_active_hash :shipping_area
+- belongs_to_active_hash :days_to_ship
 - has_many :comments
 - has_one :purchase
 
@@ -80,3 +80,4 @@
 
 ### Association
 - belongs_to :purchase
+- belongs_to_active_hash :shipping_area( prefecture )
