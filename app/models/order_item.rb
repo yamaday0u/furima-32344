@@ -7,7 +7,8 @@ class OrderItem
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :city
     validates :address
-    validates :phone_number, numericality: { only_integer: true, message: "Input only number"}
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "is invalid. Input number within 11 digits"},
+                              numericality: { only_integer: true, message: "Input only number"}
   end
 
   def save
