@@ -51,7 +51,7 @@ class PurchasesController < ApplicationController
   def redirect_user
     if current_user.id == @item.user_id
       redirect_to root_path
-    elsif Purchase.find_by(item_id: params[:item_id]).nil?
+    elsif @item.purchase.nil? # @itemからpurchaseのレコードを取得できるか=購入済みか？
     else
       redirect_to root_path
     end
