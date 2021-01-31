@@ -1,14 +1,13 @@
 class PurchasesController < ApplicationController
+  before_action :set_item
   before_action :authenticate_user!, only: [:index]
   before_action :redirect_user, only: [:index]
 
   def index
-    @item = Item.find(params[:item_id])
     @purchase = OrderItem.new # indexアクションだが、実質的にはnewアクション
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase = OrderItem.new(purchase_params)
     if @purchase.valid?
       pay_item # private method
@@ -20,6 +19,10 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def purchase_params
     params.require(:order_item).permit(
