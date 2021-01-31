@@ -9,6 +9,8 @@ class OrderItem
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Input number within 11 digits' },
                              numericality: { only_integer: true, message: 'Input only number' }
+    validates :user_id
+    validates :item_id
     validates :token
   end
 
