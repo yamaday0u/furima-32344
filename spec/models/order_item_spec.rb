@@ -57,12 +57,22 @@ RSpec.describe OrderItem, type: :model do
       it '電話番号はハイフンが不要であること' do
         @purchase.phone_number = '090-123-567'
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include('Phone number Input only number')
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input only half size number')
       end
       it '電話番号は11桁以内でないと購入できないこと' do
         @purchase.phone_number = '090123456789'
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input number within 11 digits')
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input number with 10 or 11 digits')
+      end
+      it '電話番号は全角数字だと登録できない事購入できないこと' do
+        @purchase.phone_number = '０９０１２３４５６７８'
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input only half size number')
+      end
+      it '電話番号は9桁以下だと購入できないこと' do
+        @purchase.phone_number = '090123456789'
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input number with 10 or 11 digits')
       end
       it 'user_idが空だと登録できない' do
         @purchase.user_id = ''
