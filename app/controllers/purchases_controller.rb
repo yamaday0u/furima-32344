@@ -48,7 +48,8 @@ class PurchasesController < ApplicationController
   def redirect_user
     if current_user.id == Item.find(params[:item_id]).user_id
       redirect_to root_path
-    elsif Purchase.find_by(item_id: params[:item_id]).nil? != 'true'
+    elsif Purchase.find_by(item_id: params[:item_id]).nil?
+    else
       redirect_to root_path
     end
   end
