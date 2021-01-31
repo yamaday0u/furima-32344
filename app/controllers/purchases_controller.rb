@@ -1,4 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :redirect_user, only:[:index]
+
   def index
     @item = Item.find(params[:item_id])
     @purchase = OrderItem.new #indexアクションだが、実質的にはnewアクション
@@ -38,5 +41,13 @@ class PurchasesController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def redirect_user
+    if current_user.id == Item.find(params[:item_id]).user_id
+      redirect_to root_path
+    elsif Purchase.find_by(item_id: params[:item_id]).nil? != "true"
+      redirect_to root_path
+    end
   end
 end
