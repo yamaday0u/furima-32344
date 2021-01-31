@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   before_action :redirect_user, only: [:index]
 
   def index
-    @purchase = OrderItem.new # indexアクションだが、実質的にはnewアクション
+    @purchase = OrderItem.new # indexアクションだが、機能的にはnewアクション
   end
 
   def create
@@ -49,7 +49,7 @@ class PurchasesController < ApplicationController
   end
 
   def redirect_user
-    if (current_user.id == @item.user_id) || (@item.purchase.nil? != "true") # @itemからpurchaseのレコードを取得できるか=購入済みか？
+    if (current_user.id == @item.user_id) || (@item.purchase.present?) # @itemからpurchaseのレコードを取得できるか=購入済みか？
       redirect_to root_path
     end
   end
