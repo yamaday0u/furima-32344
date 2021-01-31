@@ -25,7 +25,7 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
 
-      Delete inputted information for credit card
+      // Delete inputted information for credit card
       document.getElementById("card-number").removeAttribute("name");
       document.getElementById("card-exp-month").removeAttribute("name");
       document.getElementById("card-exp-year").removeAttribute("name");
