@@ -64,6 +64,16 @@ RSpec.describe OrderItem, type: :model do
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input number within 11 digits')
       end
+      it 'user_idが空だと登録できない' do
+        @purchase.user_id = ''
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと登録できない' do
+        @purchase.item_id = ''
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Item can't be blank")
+      end
       it 'トークンが空では登録できないこと' do
         @purchase.token = ''
         @purchase.valid?
