@@ -26,13 +26,13 @@
       </span>
     </div>
 
-    <% if user_signed_in? %>
-      <% if @item.user.id == current_user.id && @item.purchase.nil? %><%# 出品者かつ売却済みでなければ編集できる %>
+    <% if user_signed_in? && @item.purchase.nil? %><%# "ログインしている" かつ "商品が売れていない"%>
+      <% if current_user.id == @item.user.id %><%# 現在ログインしているユーザーが商品の出品者であれば編集と削除ボタンが表示される %>
         <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
         <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
-      <% elsif @item.purchase.nil? %><%# purchaseテーブルにこのitemのデータが登録されていなければ購入できる %>
-        <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
+      <% else %><%# 出品者でなければ購入できる %>
+        <%= link_to '購入画面に進む', item_purchases_path(@item.id), class:"item-red-btn"%>
       <% end %>
     <% end %>
 
