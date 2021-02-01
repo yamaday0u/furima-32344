@@ -70,7 +70,7 @@ RSpec.describe OrderItem, type: :model do
         expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input only half size number')
       end
       it '電話番号は9桁以下だと購入できないこと' do
-        @purchase.phone_number = '090123456789'
+        @purchase.phone_number = '090123456'
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include('Phone number is invalid. Input number with 10 or 11 digits')
       end
