@@ -34,10 +34,10 @@ RSpec.describe OrderItem, type: :model do
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it '都道府県のid:0を選択した場合、購入できないこと' do
-        @purchase.prefecture_id = 0
+      it '都道府県のid:1を選択した場合、購入できないこと' do
+        @purchase.prefecture_id = 1
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include('Prefecture must be other than 0')
+        expect(@purchase.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it '市区町村が空では購入できないこと' do
         @purchase.city = ''
