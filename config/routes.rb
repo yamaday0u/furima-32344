@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root to: "items#index"
   resources :items do
     resources :purchases, only: [:index, :create]
