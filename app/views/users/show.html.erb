@@ -1,0 +1,84 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= " #{@user.nickname}さん" %>
+    </h2>
+    <%# <%# <div class='item-img-content'> %>
+      <%= image_tag "silhouette-3199472_1280.png" ,class:"item-box-img" %>
+    </div>
+    
+    <% if user_signed_in? %><%# "ログインしている"%>
+      <% if current_user.id == @user.id %><%# 現在ログインしているユーザーが詳細ページのユーザーであればユーザー情報編集ボタンが表示される %>
+        <%= link_to 'ユーザー情報の編集', "#", method: :get, class: "item-red-btn" %>
+      <% end %>
+    <% end %>
+
+<%# あとでユーザープロフィール欄を入れる %>
+    <div class="item-explain-box">
+      <span><%= "ユーザーの自己紹介" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<%# 商品一覧 %>
+<div class='item-contents'>
+  <div class="subtitle">
+    <%= "#{@user.nickname}さんの出品リスト" %>
+  </div>
+  <ul class='item-lists'>
+    <% unless @items.empty? %>
+      <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag item.image, class: "item-img" %>
+
+            <%# 商品が売り切れていたらSold Out!!表示 %>
+            <% unless item.purchase.nil? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
+
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= item.name %>
+            </h3>
+            <div class='item-price'>
+              <span><%= item.price %>円<br><%= item.delivery_fee.name %></span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+          <% end %><%# link_toの終わり %>
+        </li>
+      <% end %><%# each文の終わり %>
+        
+    <% else %><%# unlessの分岐%>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'><%= "#{@user.nickname}さんは出品していません" %></h3>
+          </div>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+<%# /商品一覧 %>
+
+<%= render "shared/footer" %>
