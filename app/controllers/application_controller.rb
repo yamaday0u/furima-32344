@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
                                                        :first_name_kana,
                                                        :family_name_kana,
                                                        :birthday,
-                                                       :avatar])
+                                                       :avatar,
+                                                       :introduction])
   end
 
   def basic_authentication
