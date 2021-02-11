@@ -11,7 +11,7 @@ FactoryBot.define do
     family_name_kana { 'サンプル' }
     first_name_kana { 'タロウ' }
     birthday { Faker::Date.in_date_period }
-    introduction { Faker::Lorem.sentence}
+    introduction { Faker::Lorem.sentence }
 
     after(:build) do |user|
       user.avatar.attach(io: File.open('public/images/silhouette-3199472_1280.png'), filename: 'test_image.png')
