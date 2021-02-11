@@ -6,8 +6,12 @@
     <h2 class="name">
       <%= " #{@user.nickname}さん" %>
     </h2>
-    <%# <%# <div class='item-img-content'> %>
-      <%= image_tag "silhouette-3199472_1280.png" ,class:"item-box-img" %>
+    <div class='item-img-content' >
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar ,class:"user-box-img" %>
+      <% else %>
+        <%= image_tag "silhouette-3199472_1280.png" ,class:"item-box-img" %>
+      <% end %>
     </div>
     
     <% if user_signed_in? %><%# "ログインしている"%>
@@ -19,15 +23,8 @@
 <%# あとでユーザープロフィール欄を入れる %>
     <div class="item-explain-box">
       <span><%= "ユーザーの自己紹介" %></span>
+      <span><%= @user.introduction %></span>
     </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @user.nickname %></td>
-        </tr>
-      </tbody>
-    </table>
 </div>
 
 <%# 商品一覧 %>
@@ -69,12 +66,9 @@
         
     <% else %><%# unlessの分岐%>
         <li class='list'>
-          <%= link_to '#' do %>
-          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-          <div class='item-info'>
+          <div class='item-ino'>
             <h3 class='item-name'><%= "#{@user.nickname}さんは出品していません" %></h3>
           </div>
-          <% end %>
         </li>
     <% end %>
   </ul>

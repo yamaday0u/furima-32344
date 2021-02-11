@@ -1,0 +1,7 @@
+.user-box-img {
+  height: 30vh;
+  width: 60vw;
+  min-height: 100px;
+  /* background-color: rgb(205, 202, 202); */
+  object-fit: contain;
+}
