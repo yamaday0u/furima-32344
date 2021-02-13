@@ -16,7 +16,7 @@
     
     <% if user_signed_in? %><%# "ログインしている"%>
       <% if current_user.id == @user.id %><%# 現在ログインしているユーザーが詳細ページのユーザーであればユーザー情報編集ボタンが表示される %>
-        <%= link_to 'ユーザー情報の編集', edit_user_registration_path(@user.id), method: :get, class: "item-red-btn" %>
+        <%= link_to 'ユーザー情報の編集', edit_user_registration_path, method: :get, class: "item-red-btn" %>
       <% end %>
     <% end %>
 
