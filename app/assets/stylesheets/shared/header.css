@@ -60,13 +60,13 @@
 
 }
 
-.category-list {
+.header-list {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
 }
 
-.brand-list {
+.header-list-no-right {
   text-decoration: none;
   color: #333333;
 }
