@@ -1,0 +1,9 @@
+<%= render "shared/header" %>
+
+<h2>購入数ランキング</h2>
+<% @rankers.each do |ranker| %>
+  <li><%= "#{ranker[:user_nickname]}さん" %></li>
+  <li><%= "購入件数：#{ranker[:orders]}件" %></li>
+<% end %>
+
+<%= render "shared/footer" %>
