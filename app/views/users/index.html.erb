@@ -13,7 +13,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "売買金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
                   </div>
                   <div class="ranker-right">
@@ -31,7 +31,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "売買件数：#{ranker[:tradings]}件" %></li>
                   </div>
                   <div class="ranker-right">
@@ -52,7 +52,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "売上金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
                   </div>
                   <div class="ranker-right">
@@ -70,7 +70,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "売上件数：#{ranker[:sales]}件" %></li>
                   </div>
                   <div class="ranker-right">
@@ -91,7 +91,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "購入金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
                   </div>
                   <div class="ranker-right">
@@ -109,7 +109,7 @@
                 <div class="ranker">
                   <div class="ranker-left">
                     <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
-                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
                     <li class="ranker-point ranker-list"><%= "購入件数：#{ranker[:orders]}件" %></li>
                   </div>
                   <div class="ranker-right">

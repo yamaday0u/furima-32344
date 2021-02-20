@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
-  def index #show users ranking 
+  # show users ranking
+  def index
     @trading_amount = RankingService.rankers_by_trading_amount(User.includes(:items))
     @trading_count = RankingService.rankers_by_trading_count(User.includes(:items))
     @sales_amount = RankingService.rankers_by_sales_amount(User.includes(:items))
@@ -13,5 +13,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @items = Item.where(user_id: params[:id]).order('created_at DESC')
   end
-
 end
