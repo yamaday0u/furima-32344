@@ -42,10 +42,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # call "update without current password"
   def update_resource(resource, params)
-    resource.update_without_current_password(params)# "update_without_current_password(params)" method is in "user.rb"
+    resource.update_without_current_password(params) # "update_without_current_password(params)" method is in "user.rb"
   end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(@user.id)
   end
 
@@ -57,14 +57,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname,
-      :user_iamge,
-      :first_name,
-      :family_name,
-      :first_name_kana,
-      :family_name_kana,
-      :birthday,
-      :avatar,
-      :introduction])
+                                                              :user_iamge,
+                                                              :first_name,
+                                                              :family_name,
+                                                              :first_name_kana,
+                                                              :family_name_kana,
+                                                              :birthday,
+                                                              :avatar,
+                                                              :introduction])
   end
 
   # The path used after sign up.

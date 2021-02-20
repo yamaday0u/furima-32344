@@ -1,3 +1,104 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// index.html.erb
+$lg: 950px;
+@mixin lg {
+  @media (min-width: ($lg)) {
+    @content;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.ranking-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ranking-lists-two-each {
+  @include lg {
+    display: flex;
+  }
+  margin-bottom: 30px;
+  display: block;
+}
+
+.ranking-list {
+  @include lg {
+    width: 40vw;
+  }
+    width: 80vw;
+    margin: 1vh auto 0;
+}
+
+.ranking-list-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.ranking-list-content {
+}
+
+.ranker-list {
+  list-style: none;
+}
+
+.ranker {
+  @include lg {
+    margin: 1vw 0;
+    flex-direction: row;
+    height: 20vh;
+  }
+    box-shadow: 3px 3px 10px#0099e8;
+    border: 1px solid #0099e8;
+    border-radius: 10px;
+    display: flex;
+    margin: 3vw 0;
+    flex-direction: column;
+    height: 40vh;
+}
+
+.ranker-left {
+  @include lg {
+    width: 40%;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 18vh;
+  margin: 1vh auto;
+  text-align: center;
+}
+
+.ranker-right {
+  @include lg {
+    width: 40%;
+  }
+  height: 18vh;
+  margin: 1vh auto;
+}
+
+.user-img {
+  @include lg {
+  }
+  display: block;
+  margin: 0 auto;
+  width: 18vh; // ここはあえて"vh"
+  height: 18vh;
+}
+
+
+// index.html.erb

@@ -4,12 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+  has_many :purchases
   has_one_attached :avatar
 
   # allow users to update their accounts without passwords
   def update_without_current_password(params)
     self.attributes = params
-    self.save
+    save
   end
 
   def validate_specific_columns(columns)
@@ -17,11 +19,9 @@ class User < ApplicationRecord
     columns.valid?
     # binding.pry
     columns.errors.full_messages.each do |error|
-      unless error.include?("Password")
-        errors += 1
-      end
+      errors += 1 unless error.include?('Password')
     end
-    return errors
+    errors
   end
 
   with_options presence: true do

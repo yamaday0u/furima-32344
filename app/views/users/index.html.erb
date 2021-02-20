@@ -1,0 +1,131 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class="ranking-contents">
+    <h2 class='title'>フリマランキング</h2>
+
+      <div class="ranking-lists-two-each">
+        
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売買金額ランキング</h3>
+            <div class="ranking-list-content">
+              <% @trading_amount.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "売買金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売買件数ランキング</h3>
+            <div class="ranking-list-content">
+              <% @trading_count.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "売買件数：#{ranker[:tradings]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+      <div class="ranking-lists-two-each">
+        
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売上金額ランキング</h3>
+            <div class="ranking-list-content">
+              <% @sales_amount.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "売上金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売上件数ランキング</h3>
+            <div class="ranking-list-content">
+              <% @sale_count.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "売上件数：#{ranker[:sales]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+      <div class="ranking-lists-two-each">
+        
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">購入金額ランキング</h3>
+            <div class="ranking-list-content">
+              <% @orders_amount.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "購入金額：#{ranker[:amount].to_s(:delimited, delimiter: ',')}円" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">購入件数ランキング</h3>
+            <div class="ranking-list-content">
+              <% @order_count.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= link_to "#{ranker[:user_nickname]}さん", user_path(ranker[:user_id]) %></li>
+                    <li class="ranker-point ranker-list"><%= "購入件数：#{ranker[:orders]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+
+      
+    
+
+  </div><%# End of "select-reason-contents" %>
+</div>
+
+<%= render "shared/footer" %>
