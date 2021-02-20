@@ -1,3 +1,83 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// index.html.erb
+.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.ranking-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ranking-list {
+  width: 40vw;
+  margin: 1vh auto 0;
+}
+
+.ranking-lists-two-each {
+  // border: 1px solid red;
+  // background-color: gray;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.ranking-list-title {
+  text-align: center;
+  // background-color: blueviolet;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.ranking-list-content {
+}
+
+.ranker-list {
+  list-style: none;
+  margin-top: 1vh;
+}
+
+.ranker {
+  box-shadow: 3px 3px 10px#0099e8;
+  border: 1px solid #0099e8;
+  border-radius: 10px;
+  margin: 1vw 0;
+  // background-color: darkgrey;
+  display: flex;
+  height: 20vh;
+}
+
+.ranker-left {
+  margin: 0 auto;
+  // background-color: darkkhaki;
+  width: 40%;
+  text-align: center;
+}
+
+.ranker-right {
+  margin: 0 auto;
+  // background-color: darkred;
+  width: 40%;
+}
+
+.ranker-nickname {
+
+}
+
+.user-img {
+  display: block;
+  margin: 0 auto;
+  width: 18vh;
+  height: 18vh;
+}
+
+// index.html.erb
