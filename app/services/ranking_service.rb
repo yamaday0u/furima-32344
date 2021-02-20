@@ -2,12 +2,42 @@ class RankingService
 
   # 売買金額ランキング
   def self.rankers_by_trading_amount(users)
-    
+    ranking = []
+    users.each do |user|
+      amount = 0
+      user.items.each do |item|
+        if item.purchase
+          amount += item.price
+        end
+      end
+      user.purchases.each do |purchase|
+        amount += purchase.item.price
+      end
+      trading_amount = {user_nickname: user.nickname, user_avatar: user.avatar, amount: amount}
+      ranking << trading_amount
+    end
+    # 売買金額が多い順（降順）に並べ替え
+    ranking = ranking.sort_by { |ranker| ranker[:amount] }.reverse.slice(0, 3)
+    return ranking
   end
   
   # 売買件数ランキング
   def self.rankers_by_trading_count(users)
-    
+    ranking = []
+    users.each do |user|
+      count = 0
+      user.items.each do |item|
+        if item.purchase
+          count += 1
+        end
+      end
+      count += user.purchases.count
+      trading_count = {user_nickname: user.nickname, user_avatar: user.avatar, tradings: count}
+      ranking << trading_count
+    end
+    # 売買件数が多い順（降順）に並べ替え
+    ranking = ranking.sort_by { |ranker| ranker[:tradings] }.reverse.slice(0, 3)
+    return ranking
   end
   
   # 売上金額ランキング
@@ -20,8 +50,8 @@ class RankingService
           amount += item.price
         end
       end
-      sale_count = {user_nickname: user.nickname, user_avatar: user.avatar, amount: amount.to_s(:delimited, delimiter: ',')}
-      ranking << sale_count
+      sale_amount = {user_nickname: user.nickname, user_avatar: user.avatar, amount: amount}
+      ranking << sale_amount
     end
     # 売上件数が多い順（降順）に並べ替え
     ranking = ranking.sort_by { |ranker| ranker[:amount] }.reverse.slice(0, 3)
@@ -54,7 +84,7 @@ class RankingService
       user.purchases.each do |purchase|
         amount += purchase.item.price
       end
-      order_amount = {user_nickname: user.nickname, user_avatar: user.avatar, amount: amount.to_s(:delimited, delimiter: ',')}
+      order_amount = {user_nickname: user.nickname, user_avatar: user.avatar, amount: amount}
       ranking << order_amount
     end
     # 購入金額が多い順（降順）に並べ替え
