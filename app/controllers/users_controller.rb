@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def index #show users ranking 
-    @rankers = RankingService.show_rankers_by_orders(User.all)
+    @rankers = RankingService.rankers_by_order_count(User.all)
+    @sales_rankers
+    @orders_amount = RankingService.rankers_by_orders_amount(User.includes(:items))
   end
 
   def show

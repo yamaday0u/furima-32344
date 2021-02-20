@@ -7,7 +7,7 @@
       <div class="ranking-lists-two-each">
         
           <div class="ranking-list">
-            <h3 class="ranking-list-title">売買件数ランキング</h3>
+            <h3 class="ranking-list-title">売買金額ランキング</h3>
             <div class="ranking-list-content">
               <% @rankers.each_with_index do |ranker, i| %>
                 <div class="ranker">
@@ -26,6 +26,84 @@
 
           <div class="ranking-list">
             <h3 class="ranking-list-title">売買件数ランキング</h3>
+            <div class="ranking-list-content">
+              <% @rankers.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-point ranker-list"><%= "購入件数：#{ranker[:orders]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+      <div class="ranking-lists-two-each">
+        
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売上金額ランキング</h3>
+            <div class="ranking-list-content">
+              <% @rankers.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-point ranker-list"><%= "購入件数：#{ranker[:orders]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">売上件数ランキング</h3>
+            <div class="ranking-list-content">
+              <% @rankers.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-point ranker-list"><%= "購入件数：#{ranker[:orders]}件" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+      <div class="ranking-lists-two-each">
+        
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">購入金額ランキング</h3>
+            <div class="ranking-list-content">
+              <% @orders_amount.each_with_index do |ranker, i| %>
+                <div class="ranker">
+                  <div class="ranker-left">
+                    <li class="ranker-rank ranker-list"><%= "#{i + 1}位" %></li>
+                    <li class="ranker-nickname ranker-list"><%= "#{ranker[:user_nickname]}さん" %></li>
+                    <li class="ranker-point ranker-list"><%= "購入金額：#{ranker[:orders]}円" %></li>
+                  </div>
+                  <div class="ranker-right">
+                    <li class="ranker-avatar ranker-list"><%= image_tag ranker[:user_avatar], class: "user-img" %></li>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <h3 class="ranking-list-title">購入件数ランキング</h3>
             <div class="ranking-list-content">
               <% @rankers.each_with_index do |ranker, i| %>
                 <div class="ranker">
