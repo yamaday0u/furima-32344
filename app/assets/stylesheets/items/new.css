@@ -227,3 +227,8 @@
 .inc {
   font-size: 13px;
 }
+
+.price-error {
+  visibility: hidden;
+  color: red;
+}
