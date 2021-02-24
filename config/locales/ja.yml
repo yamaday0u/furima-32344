@@ -1,0 +1,80 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       first_name: 名前
+       family_name: 苗字
+       first_name_kana: 名前（カナ）
+       family_name_kana: 苗字（カナ）
+       birthday: 生年月日
+     item:
+       name: 商品名
+       explanation: 商品の説明
+       image: 画像
+       category_id: カテゴリー
+       item_status_id: 商品の状態
+       delivery_fee_id: 配送料の負担
+       shipping_area_id: 発送元の地域
+       days_to_ship_id: 発送までの日数
+       price: 販売価格
+   errors:
+     models:
+       user:
+         attributes:
+           email:
+             blank: が空欄です
+           password:
+             blank: が空欄です
+           nickname:
+             blank: が空欄です
+           first_name:
+             blank: が空欄です
+           family_name:
+             blank: が空欄です
+           first_name_kana:
+             blank: が空欄です
+           family_name_kana:
+             blank: が空欄です
+           birthday:
+             blank: が空欄です
+       item:
+         attributes:
+           name:
+             blank: が空欄です
+           explanation:
+             blank: が空欄です
+           image:
+             blank: が空欄です
+           category_id:
+             other_than: が選択されていません
+           item_status_id:
+             other_than: が選択されていません
+           delivery_fee_id:
+             other_than: が選択されていません
+           shipping_area_id:
+             other_than: が選択されていません
+           days_to_ship_id:
+             other_than: が選択されていません
+           price:
+             blank: が空欄です
+ date:
+   formats:
+     default: "%Y/%m/%d"
+     short: "%m/%d"
+     long: "%Y年%m月%d日(%a)"
+   day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+   abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+   month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+   abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+   order:
+     - :year
+     - :month
+     - :day
+ time:
+   formats:
+     default: "%Y/%m/%d %H:%M:%S"
+     short: "%y/%m/%d %H:%M"
+     long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+   am: "午前"
+   pm: "午後"

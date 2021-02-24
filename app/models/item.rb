@@ -23,7 +23,7 @@ class Item < ApplicationRecord
       validates :shipping_area_id
       validates :days_to_ship_id
     end
-    validates :price, format: { with: /\A\d+\z/, message: 'Half-width number' },
-                      numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+    validates :price, format: { with: /\A\d+\z/, message: 'は半角数字で入力してください' },
+                      numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300円から9,999,999円の間で入力してください' }
   end
 end
