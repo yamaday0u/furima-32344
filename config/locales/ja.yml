@@ -53,14 +53,19 @@ ja:
              blank: が空欄です
            category_id:
              other_than: が選択されていません
+             not_a_number: が選択されていません
            item_status_id:
              other_than: が選択されていません
+             not_a_number: が選択されていません
            delivery_fee_id:
              other_than: が選択されていません
+             not_a_number: が選択されていません
            shipping_area_id:
              other_than: が選択されていません
+             not_a_number: が選択されていません
            days_to_ship_id:
              other_than: が選択されていません
+             not_a_number: が選択されていません
            price:
              blank: が空欄です
  date:
