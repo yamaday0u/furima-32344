@@ -24,8 +24,13 @@ ja:
          attributes:
            email:
              blank: が空欄です
+             taken: は既に登録されています
+             invalid: に「@」を挿入してください
            password:
              blank: が空欄です
+             too_short: は6文字以上の半角英数字で入力してください
+           password_confirmation:
+             confirmation: がパスワードと一致していません
            nickname:
              blank: が空欄です
            first_name:

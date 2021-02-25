@@ -24,56 +24,56 @@ RSpec.describe User, type: :model do
       it 'nicknameが空では登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+        expect(@user.errors.full_messages).to include("ニックネーム が空欄です")
       end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Eメール が空欄です")
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include('Email has already been taken')
+        expect(another_user.errors.full_messages).to include('Eメール は既に登録されています')
       end
       it 'emailに@が含まれていないと登録できない' do
         @user.email.slice!('@')
         @user.valid?
-        expect(@user.errors.full_messages).to include('Email is invalid')
+        expect(@user.errors.full_messages).to include('Eメール に「@」を挿入してください')
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")
+        expect(@user.errors.full_messages).to include("パスワード が空欄です")
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = '123ab'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('パスワード は6文字以上の半角英数字で入力してください')
       end
       it 'passwordが半角英数字混合での入力されていないと登録できない' do
         @user.password = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password には半角の英字と数字の両方を含めて設定してください')
+        expect(@user.errors.full_messages).to include('パスワード には半角の英字と数字の両方を含めて設定してください')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("パスワード（確認用） がパスワードと一致していません")
       end
       it 'passwordが数字のみだと登録できない' do
         @user.password = '123456'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password には半角の英字と数字の両方を含めて設定してください')
+        expect(@user.errors.full_messages).to include('パスワード には半角の英字と数字の両方を含めて設定してください')
       end
       it ' passwordに全角が含まれていると登録できない' do
         @user.password = '12３abc'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password には半角の英字と数字の両方を含めて設定してください')
+        expect(@user.errors.full_messages).to include('パスワード には半角の英字と数字の両方を含めて設定してください')
       end
     end
 
@@ -81,57 +81,57 @@ RSpec.describe User, type: :model do
       it 'first_nameが空欄では登録できないこと' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank")
+        expect(@user.errors.full_messages).to include("名前 が空欄です")
       end
       it 'family_nameが空欄では登録できないこと' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name can't be blank")
+        expect(@user.errors.full_messages).to include("苗字 が空欄です")
       end
       it 'first_nameが半角では登録できないこと' do
         @user.first_name = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name には全角で入力して下さい')
+        expect(@user.errors.full_messages).to include('名前 には全角で入力して下さい')
       end
       it 'family_nameが半角では登録できないこと' do
         @user.family_name = 'ｻﾝﾌﾟﾙ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name には全角で入力して下さい')
+        expect(@user.errors.full_messages).to include('苗字 には全角で入力して下さい')
       end
       it 'first_name_kanaが空欄では登録できないこと' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana can't be blank")
+        expect(@user.errors.full_messages).to include("名前（カナ） が空欄です")
       end
       it 'family_name_kanaが空欄では登録できないこと' do
         @user.family_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana can't be blank")
+        expect(@user.errors.full_messages).to include("苗字（カナ） が空欄です")
       end
       it 'first_name_kanaが半角カタカナでは登録できないこと' do
         @user.first_name_kana = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name kana には全角カタカナのみで入力して下さい')
+        expect(@user.errors.full_messages).to include('名前（カナ） には全角カタカナのみで入力して下さい')
       end
       it 'family_name_kanaが半角カタカナでは登録できないこと' do
         @user.family_name_kana = 'ｻﾝﾌﾟﾙ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name kana には全角カタカナのみで入力して下さい')
+        expect(@user.errors.full_messages).to include('苗字（カナ） には全角カタカナのみで入力して下さい')
       end
       it 'first_name_kanaがカタカナでの入力されていないと登録できないこと' do
         @user.first_name_kana = 'たろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name kana には全角カタカナのみで入力して下さい')
+        expect(@user.errors.full_messages).to include('名前（カナ） には全角カタカナのみで入力して下さい')
       end
       it 'family_name_kanaがカタカナでの入力されていないと登録できないこと' do
         @user.family_name_kana = 'さんぷる'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name kana には全角カタカナのみで入力して下さい')
+        expect(@user.errors.full_messages).to include('苗字（カナ） には全角カタカナのみで入力して下さい')
       end
       it 'birthdayが空では登録できないこと' do
         @user.birthday = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Birthday can't be blank")
+        expect(@user.errors.full_messages).to include("生年月日 が空欄です")
       end
     end
   end
