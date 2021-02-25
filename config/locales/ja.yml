@@ -68,6 +68,39 @@ ja:
              not_a_number: が選択されていません
            price:
              blank: が空欄です
+ activemodel:
+   attributes:
+     order_item:
+       postal_code: 郵便番号
+       prefecture_id: 都道府県
+       city: 市区町村
+       address: 番地
+       phone_number: 電話番号
+       token: クレジットカード
+       user_id: ユーザー
+       item_id: 商品
+   errors:
+     models:
+       order_item:
+         attributes:
+           postal_code:
+             blank: が空欄です
+           prefecture_id:
+             blank: が空欄です
+             not_a_number: が選択されていません
+             other_than: が選択されていません
+           city:
+             blank: が空欄です
+           address:
+             blank: が空欄です
+           phone_number:
+             blank: が空欄です
+           token:
+             blank: の情報が正しくありません
+           user_id:
+             blank: が空欄です
+           item_id:
+             blank: が空欄ですt
  date:
    formats:
      default: "%Y/%m/%d"
