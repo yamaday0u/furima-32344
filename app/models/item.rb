@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one :purchase
+  has_many :comment
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
