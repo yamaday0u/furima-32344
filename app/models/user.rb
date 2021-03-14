@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :purchases
+  has_many :comments
   has_one_attached :avatar
 
   # allow users to update their accounts without passwords
