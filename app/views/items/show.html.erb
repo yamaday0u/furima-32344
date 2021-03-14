@@ -95,8 +95,7 @@
 
       <div id="messages">
         <% @comments.reverse_each do |comment| %>
-          <p><%= comment.user.nickname %></p>
-          <p><%= comment.text %></p>
+          <p class="comment"><%= comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %><br><%= comment.user.nickname %><br><%= comment.text %></p>
         <% end %>
       </div>
     </div>

@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @user = current_user
     if @comment.save
-      ActionCable.server.broadcast 'comment_channel', content: @comment, user: @user
+      @time = @comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+      ActionCable.server.broadcast 'comment_channel', content: @comment, user: @user, time: @time
     end
   end
 
