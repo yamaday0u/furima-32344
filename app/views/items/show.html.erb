@@ -80,25 +80,28 @@
   </div>
   <%# /商品の概要 %>
 
-  <div class="comment-box">
-    <%= form_with model: @comment, url: item_comments_path(@item.id) do |f| %>
-      <%= f.text_area :text, class: "comment-text" %>
-        <p class="comment-warn">
-          相手のことを考え丁寧なコメントを心がけましょう。
-          <br>
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        </p>
+  <% unless @item.purchase.present? %>
+    <div class="comment-box">
+      <%= form_with model: @comment, url: item_comments_path(@item.id) do |f| %>
+        <%= f.text_area :text, class: "comment-text" %>
+          <p class="comment-warn">
+            相手のことを考え丁寧なコメントを心がけましょう。
+            <br>
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          </p>
 
-      <%= f.submit 'コメントする', class: "comment-btn" %>
-    <% end %>
-
-    <div id="messages">
-      <% @comments.reverse_each do |comment| %>
-        <p><%= comment.user.nickname %></p>
-        <p><%= comment.text %></p>
+        <%= f.submit 'コメントする', class: "comment-btn" %>
       <% end %>
+
+      <div id="messages">
+        <% @comments.reverse_each do |comment| %>
+          <p><%= comment.user.nickname %></p>
+          <p><%= comment.text %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
+
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
