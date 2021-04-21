@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @results = @p.result.includes(:category)
+    @results = @p.result.order('created_at DESC')
   end
 
   private

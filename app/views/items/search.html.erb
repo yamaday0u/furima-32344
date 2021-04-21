@@ -1,0 +1,47 @@
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='item-contents'>
+    <% if @results.length !=0 %>
+      <p class='subtitle'>検索結果:<%= @results.length %>件</p>
+      <ul class='item-lists'>
+        <% @results.each do |result| %>
+          <li class='list'>
+            <%= link_to item_path(result.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag result.image, class: "item-img" %>
+
+              <%# 商品が売り切れていたらSold Out!!表示 %>
+              <% unless result.purchase.nil? %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= result.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= result.price %>円<br><%= result.delivery_fee.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+            <% end %><%# link_toの終わり %>
+          </li>
+        <% end %><%# each文の終わり %>
+      </ul>
+    <% else %>
+      <p class="subtitle">該当する商品はありません</p>
+    <% end %>
+
+    <div class="sell-btn-contents">
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+
+  </div>
+</div>
+<%= render "shared/footer" %>
