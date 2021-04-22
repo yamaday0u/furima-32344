@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
       username == ENV['BASIC_AUTH_USER_FURIMA'] && password == ENV['BASIC_AUTH_PASSWORD_FURIMA']
     end
   end
+
+  def search_item
+    @p = Item.ransack(params[:q])
+  end
+
 end
