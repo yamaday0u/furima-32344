@@ -1,5 +1,5 @@
 class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :item
-  has_one :delivery
+  has_one :delivery, dependent: :destroy
 end
