@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :search_item, only: [:index, :show]
   # show users ranking
   def index
     @trading_amount = RankingService.rankers_by_trading_amount(User.includes(:items))

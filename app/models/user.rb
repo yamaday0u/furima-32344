@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :items
-  has_many :purchases
-  has_many :comments
+  has_many :items, dependent: :destroy
+  has_many :purchases, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :avatar
 
   # allow users to update their accounts without passwords
