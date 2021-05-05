@@ -25,5 +25,4 @@ class ApplicationController < ActionController::Base
   def search_item
     @p = Item.ransack(params[:q])
   end
-
 end

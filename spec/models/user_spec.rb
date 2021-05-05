@@ -24,12 +24,12 @@ RSpec.describe User, type: :model do
       it 'nicknameが空では登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネーム が空欄です")
+        expect(@user.errors.full_messages).to include('ニックネーム が空欄です')
       end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメール が空欄です")
+        expect(@user.errors.full_messages).to include('Eメール が空欄です')
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード が空欄です")
+        expect(@user.errors.full_messages).to include('パスワード が空欄です')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = '123ab'
@@ -61,7 +61,7 @@ RSpec.describe User, type: :model do
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用） がパスワードと一致していません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用） がパスワードと一致していません')
       end
       it 'passwordが数字のみだと登録できない' do
         @user.password = '123456'
@@ -81,12 +81,12 @@ RSpec.describe User, type: :model do
       it 'first_nameが空欄では登録できないこと' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前 が空欄です")
+        expect(@user.errors.full_messages).to include('名前 が空欄です')
       end
       it 'family_nameが空欄では登録できないこと' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("苗字 が空欄です")
+        expect(@user.errors.full_messages).to include('苗字 が空欄です')
       end
       it 'first_nameが半角では登録できないこと' do
         @user.first_name = 'ﾀﾛｳ'
@@ -101,12 +101,12 @@ RSpec.describe User, type: :model do
       it 'first_name_kanaが空欄では登録できないこと' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前（カナ） が空欄です")
+        expect(@user.errors.full_messages).to include('名前（カナ） が空欄です')
       end
       it 'family_name_kanaが空欄では登録できないこと' do
         @user.family_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("苗字（カナ） が空欄です")
+        expect(@user.errors.full_messages).to include('苗字（カナ） が空欄です')
       end
       it 'first_name_kanaが半角カタカナでは登録できないこと' do
         @user.first_name_kana = 'ﾀﾛｳ'
@@ -131,7 +131,7 @@ RSpec.describe User, type: :model do
       it 'birthdayが空では登録できないこと' do
         @user.birthday = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("生年月日 が空欄です")
+        expect(@user.errors.full_messages).to include('生年月日 が空欄です')
       end
     end
   end
