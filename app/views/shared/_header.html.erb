@@ -3,11 +3,12 @@
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%= search_form_for @p, url: items_search_path, class: "search-form" do |f| %>
-      
       <%= f.text_field :name_cont, :placeholder => "商品名で検索", class: "input-box" %>
+      <%= f.collection_select :category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: '指定なし', class: "input-box" %>
       <%= f.submit '検索', class: "search-button" %>
     <% end %>
   </div>
+
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "header-list" %></li>
