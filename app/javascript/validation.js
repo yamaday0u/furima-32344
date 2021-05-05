@@ -1,4 +1,4 @@
-if (location.pathname.match("/items/new")) {
+if (location.pathname.match("/items/new") || location.pathname.match("/items/../edit")) {
 
   const validation = () => {
   const priceErrorElement = document.getElementById("price-error");

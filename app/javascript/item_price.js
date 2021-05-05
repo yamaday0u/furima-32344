@@ -1,4 +1,4 @@
-if (location.pathname.match("/items/new")) {
+if (location.pathname.match("/items/new") || location.pathname.match("/items/../edit")) {
 
   window.addEventListener('load', () => {
     const priceInput = document.getElementById("item-price");
