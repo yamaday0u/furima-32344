@@ -1,41 +1,41 @@
 if (location.pathname.match("/items/new") || location.pathname.match("/items/../edit")) {
 
   const validation = () => {
-  const priceErrorElement = document.getElementById("price-error");
-  const itemPrice = document.getElementById("item-price");
+    const priceErrorElement = document.getElementById("price-error");
+    const itemPrice = document.getElementById("item-price");
 
-  const pricePattern = /^[\A\d+\z]/;
+    const pricePattern = /^\d+$/;
 
-  addEventListener("keyup", e => {
-    const errorMessageCharacter = document.getElementById("price-character-error");
-    if (pricePattern.test(itemPrice.value) || itemPrice.value == "") {
-      if (errorMessageCharacter != null) {
-        errorMessageCharacter.remove();
+    itemPrice.addEventListener("keyup", e => {
+      const errorMessageCharacter = document.getElementById("price-character-error");
+      if (pricePattern.test(itemPrice.value) || itemPrice.value == "") {
+        if (errorMessageCharacter != null) {
+          errorMessageCharacter.remove();
+        }
+      } else   {
+        if (errorMessageCharacter === null) {
+          priceErrorElement.insertAdjacentHTML('afterend', '<div id="price-character-error" class="price-error">価格は半角数字で入力してください</div>' );
+        }
       }
-    } else   {
-      if (errorMessageCharacter === null) {
-        priceErrorElement.insertAdjacentHTML('afterend', '<div id="price-character-error" class="price-error">価格は半角数字で入力してください</div>' );
+    });
+
+    const minimumPrice = 300;
+    const maximumPrice = 9999999;
+
+    itemPrice.addEventListener("keyup", e => {
+      const rangeErrorMessage = document.getElementById("price-range-error");
+      if (itemPrice.value < minimumPrice || itemPrice.value > maximumPrice ) {
+        if (rangeErrorMessage === null) {
+          priceErrorElement.insertAdjacentHTML('afterend', '<div id="price-range-error" class="price-error">価格は300〜9,999,999の範囲で設定してください</div>' );
+        }
+      } else {
+        if (rangeErrorMessage != null) {
+          rangeErrorMessage.remove();
+        }
       }
-    }
-  });
-
-  const minimumPrice = 300;
-  const maximumPrice = 9999999;
-
-  addEventListener("keyup", e => {
-    const rangeErrorMessage = document.getElementById("price-range-error");
-  if (itemPrice.value < minimumPrice || itemPrice.value > maximumPrice && itemPrice.value != nil ) {
-    if (rangeErrorMessage === null) {
-      priceErrorElement.insertAdjacentHTML('afterend', '<div id="price-range-error" class="price-error">価格は300〜9,999,999の範囲で設定してください</div>' );
-    }
-  } else {
-    if (rangeErrorMessage != null) {
-      rangeErrorMessage.remove();
-    }
+    });
   }
-  });
-}
 
-window.addEventListener("load", validation)
+  window.addEventListener("load", validation)
 
 }
