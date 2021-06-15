@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :purchases, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :sns_credentials
   has_one_attached :avatar
 
   # allow users to update their accounts without passwords
