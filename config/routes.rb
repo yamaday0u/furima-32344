@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :purchases, only: [:index, :create]
     resources :comments, only: :create
   end
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
   resources :users, only: [:index, :show]
 end
